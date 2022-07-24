@@ -1,6 +1,6 @@
 import styles from '../../styles/Tool.module.css'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 export const generateRandomString = (
   length = 20,
   useNumbers = true,
@@ -36,19 +36,23 @@ export default function RandomStringGenerator() {
     setLength(1000)
   }
 
+  useEffect(() =>{
+    setGeneratedString(generateRandomString(length,useNumbers,useSymbols,useUpperCase,useLowerCase))
+  },[length,useNumbers,useSymbols,useUpperCase,useLowerCase])
+
   return (
     <div className={styles.box}>
       <h1>Random String Generator</h1>
-      <input type="number" name="length" value={length} onChange={(e) =>setLength(e.target.value) } /><br />
+      <div>length:<input type="number" name="length" value={length} onChange={(e) =>setLength(e.target.value) } /></div><br />
       <div>Use Numbers: <input type="checkbox" name="useNumbers" checked={useNumbers} onChange={(a) => setUseNumbers(!useNumbers)} /></div>
       <div>Use Symbols <input type="checkbox" name="useSymbols" checked={useSymbols} onChange={() => setUseSymbols(!useSymbols)} /></div> 
       <div> Use UpperCase<input type="checkbox" name="useUpperCase" checked={useUpperCase} onChange={() => setUseUpperCase(!useUpperCase)} /></div>
       <div>Use LowerCase<input type="checkbox" name="useLowerCase" checked={useLowerCase} onChange={() => setUseLowerCase(!useLowerCase)} /></div> 
-      <input type="button" name="generate" value="Generate" onClick={() => setGeneratedString(generateRandomString(length, useNumbers, useSymbols, useUpperCase, useLowerCase))} />
+      <input type="button" name="generate" value="Generate" className={styles.generate} onClick={() => setGeneratedString(generateRandomString(length, useNumbers, useSymbols, useUpperCase, useLowerCase))} />
 
       <h2>Output</h2>
       <div/>
-      <blockquote style={{ wordBreak: 'break-word', backgroundColor: 'lightgray'}}>
+      <blockquote>
         { generatedString }
       </blockquote>
     </div>

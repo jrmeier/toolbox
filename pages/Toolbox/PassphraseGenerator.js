@@ -8,7 +8,7 @@ export const generateRandomizedString = (inputString, percentageToReplace = 20) 
         'c':['(','[','{'],
         'd':[']'],
         'e':['3'],
-        'f':['|'],
+        'f':['5'],
         'g':['6','9'],
         'h':['#'],
         'i':['1','!','|'],
@@ -86,10 +86,10 @@ export default function PassphraseGenerator()  {
         Phrase: <input type="text" name="givenPhrase" value={givenPhrase} onChange={(e) => setGivenPhrase(e.target.value)} />
         <br />
         % of characters to replace: <input type="number" name="percentageToReplace" value={percentageToReplace} onChange={(e) => setPercentageToReplace(e.target.value)} />
-        <input type="button" name="generate" value='Generate' onClick={()=>setGeneratedPhrase(generateRandomizedString(givenPhrase, percentageToReplace))}/>
+        <input className={styles.generate}type="button" name="generate" value='Generate' onClick={()=>setGeneratedPhrase(generateRandomizedString(givenPhrase, percentageToReplace))}/>
         <h2>Output</h2>
         <div/>
-        <blockquote style={{ wordBreak: 'break-word', backgroundColor: 'lightgray'}}>
+        <blockquote className={styles.output}>
             { generatedPhrase}
         </blockquote>
     </div>)

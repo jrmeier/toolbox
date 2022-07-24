@@ -1,11 +1,35 @@
 .box {
-    max-width: 500px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    max-width: 400px;
+    /* background-color: #2F3BFF; */
+    /* box-shadow: 0 0 20px #FBDE21; */
+    padding: 10px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:white;
+    text-align: center;
+}
+.generate {
+    background-color: #2F3BFF;
+    padding: 10px;
+    font-size: 1.5em;
+    margin: 10px;
+    color: white;
+    border: none;
+}
+.generate:hover {
+    cursor: pointer;
+}
+.generate:active {
+    background-color: white;
+    color: #2F3BFF;
+}
+.generate:input{
+    display: none;
+}
+.inputError{
+    color: red;
+    font-size: 1em;
 }
