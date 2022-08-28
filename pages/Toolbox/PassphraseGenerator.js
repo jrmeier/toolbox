@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from '../../styles/Tool.module.css'
+import { faker } from '@faker-js/faker'
 
 export const generateRandomizedString = (inputString, percentageToReplace = 20) =>{
     const substitutionMap = {
@@ -80,6 +81,7 @@ export default function PassphraseGenerator()  {
     const [givenPhrase, setGivenPhrase] = useState('');
     const [generatedPhrase, setGeneratedPhrase] = useState('');
     const [percentageToReplace, setPercentageToReplace] = useState(20);
+
 
     return (<div className={styles.box}>
         <h1>Passphrase Generator</h1>

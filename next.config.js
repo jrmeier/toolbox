@@ -1,3 +1,3 @@
-// module.exports = {
-//   basePath: '/toolbox',
-// }
+module.exports = {
+  basePath: '/toolbox',
+}
